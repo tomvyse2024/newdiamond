@@ -5,8 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090807">
+
 <title>New Diamond | Shine Forever</title>
-<meta name="description" content="Discover timeless elegance with New Diamond.">
+<meta name="description" content="New Diamond Gems & Jewellery - Discover timeless elegance in Mandalay, Myanmar.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,21 +16,40 @@
 <style>
 :root {
   --black: #090807;
+  --black-soft: #15120e;
   --gold: #d6b477;
   --gold-light: #f1d9a7;
   --cream: #f8f5ef;
   --text: #29251f;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html { scroll-behavior: smooth; }
+
 body {
   font-family: 'Montserrat', sans-serif;
   background: var(--cream);
   color: var(--text);
 }
-a { text-decoration: none; color: inherit; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 button { font: inherit; }
+
+::selection {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* NAVIGATION */
 
 .navbar {
   height: 82px;
@@ -40,48 +60,67 @@ button { font: inherit; }
   align-items: center;
   justify-content: space-between;
   position: absolute;
-  top: 0; left: 0; right: 0;
-  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   border-bottom: 1px solid rgba(214,180,119,.2);
 }
+
 .brand {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .brand-icon {
   color: var(--gold);
-  font-size: 36px;
+  font-size: 38px;
 }
+
 .brand-name {
   font-family: 'Cormorant Garamond', serif;
   color: var(--gold-light);
   font-size: 25px;
   letter-spacing: 2px;
 }
+
 .brand-tag {
   font-size: 9px;
   letter-spacing: 3px;
   color: #c8b28d;
   margin-top: 2px;
 }
+
 .nav-links {
   display: flex;
-  gap: 34px;
+  gap: 32px;
   align-items: center;
 }
+
 .nav-links a {
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 1px;
   transition: .3s;
 }
-.nav-links a:hover { color: var(--gold); }
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
 .nav-contact {
   padding: 12px 20px;
   border: 1px solid var(--gold);
   color: var(--gold-light);
   font-size: 11px;
+  transition: .3s;
 }
+
+.nav-contact:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
 .menu-btn {
   display: none;
   background: none;
@@ -91,44 +130,65 @@ button { font: inherit; }
   cursor: pointer;
 }
 
+/* HERO */
+
 .hero {
-  min-height: 690px;
+  min-height: 700px;
   padding: 150px 10% 90px;
   display: flex;
   align-items: center;
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
   color: white;
+
   background:
-    linear-gradient(90deg, rgba(5,4,3,.95) 0%, rgba(5,4,3,.76) 43%, rgba(5,4,3,.08) 100%),
-    url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=2000&q=90') center/cover;
+    linear-gradient(
+      90deg,
+      rgba(5,4,3,.96) 0%,
+      rgba(5,4,3,.76) 43%,
+      rgba(5,4,3,.12) 100%
+    ),
+    url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=2000&q=90')
+    center/cover;
 }
-.hero-content { max-width: 600px; }
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+}
+
 .eyebrow {
   color: var(--gold);
   letter-spacing: 5px;
   font-size: 11px;
   margin-bottom: 22px;
 }
+
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(55px, 8vw, 100px);
-  line-height: .95;
+  font-size: clamp(58px, 8vw, 105px);
+  line-height: .92;
   font-weight: 500;
   color: var(--gold-light);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
+
 .hero-script {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(25px, 4vw, 39px);
   font-style: italic;
-  margin: 20px 0;
+  margin: 22px 0;
 }
+
 .hero-description {
   max-width: 430px;
   line-height: 1.9;
   font-size: 13px;
   color: #d3cec5;
 }
+
 .gold-button {
   display: inline-block;
   margin-top: 32px;
@@ -139,60 +199,174 @@ button { font: inherit; }
   letter-spacing: 2px;
   transition: .3s;
 }
+
 .gold-button:hover {
   background: var(--gold);
   color: var(--black);
 }
 
-.section { padding: 95px 8%; }
-.section-heading { text-align: center; margin-bottom: 45px; }
+/* SPARKLE ANIMATION */
+
+.sparkle-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sparkle {
+  position: absolute;
+  color: #fff1c9;
+  opacity: 0;
+  text-shadow:
+    0 0 6px white,
+    0 0 15px #e6bd73,
+    0 0 25px #d6b477;
+
+  animation: diamondTwinkle 4s ease-in-out infinite;
+}
+
+@keyframes diamondTwinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(.2) rotate(0deg);
+  }
+
+  45% {
+    opacity: .9;
+    transform: scale(1.4) rotate(45deg);
+  }
+
+  60% {
+    opacity: .25;
+    transform: scale(.8) rotate(90deg);
+  }
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255,255,255,.07) 48%,
+    transparent 60%
+  );
+
+  transform: translateX(-100%);
+  animation: heroLight 9s ease-in-out infinite;
+}
+
+@keyframes heroLight {
+  0%, 55% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* SECTIONS */
+
+.section {
+  padding: 95px 8%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
 .section-heading span {
   color: #a98750;
   font-size: 10px;
   letter-spacing: 4px;
 }
+
 .section-heading h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(35px, 5vw, 52px);
   font-weight: 500;
   margin-top: 10px;
 }
+
 .section-heading p {
   font-size: 12px;
   color: #827b70;
   margin-top: 10px;
 }
 
+/* COLLECTIONS */
+
 .collection-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
 }
+
 .collection-card {
   position: relative;
   height: 310px;
   overflow: hidden;
   background: #222;
+  isolation: isolate;
 }
+
 .collection-card img {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: transform .7s;
 }
-.collection-card:hover img { transform: scale(1.08); }
+
+.collection-card:hover img {
+  transform: scale(1.08);
+}
+
 .collection-card::after {
   content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(transparent 45%, rgba(0,0,0,.78));
-}
-.collection-title {
   position: absolute;
   z-index: 1;
-  bottom: 22px; left: 20px;
+  inset: 0;
+  background: linear-gradient(
+    transparent 45%,
+    rgba(0,0,0,.82)
+  );
+}
+
+.collection-card::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: left .8s ease;
+}
+
+.collection-card:hover::before {
+  left: 150%;
+}
+
+.collection-title {
+  position: absolute;
+  z-index: 3;
+  bottom: 22px;
+  left: 20px;
   color: white;
   font-family: 'Cormorant Garamond', serif;
   font-size: 25px;
 }
+
 .collection-title small {
   display: block;
   color: var(--gold-light);
@@ -202,6 +376,8 @@ button { font: inherit; }
   margin-top: 5px;
 }
 
+/* STORY */
+
 .story {
   background: var(--black);
   color: white;
@@ -210,12 +386,13 @@ button { font: inherit; }
   align-items: center;
   gap: 70px;
 }
+
 .story-image img {
   width: 100%;
   height: 460px;
   object-fit: cover;
 }
-.story-text .eyebrow { margin-bottom: 18px; }
+
 .story-text h2 {
   font-family: 'Cormorant Garamond', serif;
   color: var(--gold-light);
@@ -224,12 +401,15 @@ button { font: inherit; }
   line-height: 1.05;
   margin-bottom: 25px;
 }
+
 .story-text p {
   color: #c2bcb2;
   line-height: 2;
   font-size: 13px;
   margin-bottom: 15px;
 }
+
+/* FEATURES */
 
 .features {
   display: grid;
@@ -239,44 +419,166 @@ button { font: inherit; }
   text-align: center;
   gap: 25px;
 }
-.feature-icon { font-size: 32px; color: #a98750; }
+
+.feature-icon {
+  font-size: 34px;
+  color: #a98750;
+}
+
 .feature h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 25px;
   margin: 12px 0 8px;
 }
-.feature p { color: #777064; font-size: 11px; line-height: 1.8; }
+
+.feature p {
+  color: #777064;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* CONTACT */
 
 .contact {
-  background: #f8f5ef;
+  background: var(--cream);
   text-align: center;
 }
+
 .contact-box {
-  max-width: 650px;
+  max-width: 720px;
   margin: auto;
-  padding: 45px 25px;
+  padding: 55px 35px;
   border: 1px solid #d7c6a7;
+  position: relative;
 }
+
 .contact-box h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 48px;
   font-weight: 500;
 }
-.contact-box p {
+
+.contact-box > p {
   font-size: 12px;
   color: #777064;
   line-height: 2;
   margin-top: 15px;
 }
+
+.contact-details {
+  margin: 30px auto 20px;
+  max-width: 460px;
+  text-align: left;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 10px;
+  border-bottom: 1px solid #e1d5c0;
+  transition: .3s;
+}
+
+.contact-item:hover {
+  background: rgba(214,180,119,.08);
+}
+
+.contact-item-icon {
+  font-size: 29px;
+  color: #a98750;
+  width: 40px;
+  text-align: center;
+}
+
+.contact-item strong {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #a98750;
+}
+
+.contact-item p {
+  margin-top: 7px;
+  color: #514a40;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.contact-item a {
+  color: #514a40;
+  transition: .3s;
+}
+
+.contact-item a:hover {
+  color: #a98750;
+}
+
 .contact-button {
   display: inline-block;
   background: var(--black);
   color: var(--gold-light);
   padding: 15px 28px;
-  margin-top: 25px;
-  font-size: 11px;
+  margin: 12px 5px 0;
+  font-size: 10px;
   letter-spacing: 2px;
+  transition: .3s;
 }
+
+.contact-button:hover {
+  background: #a98750;
+  color: white;
+}
+
+/* SOCIAL LINKS */
+
+.social-section {
+  background: var(--black-soft);
+  text-align: center;
+  padding: 65px 20px;
+  color: white;
+}
+
+.social-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--gold-light);
+  font-size: 38px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.social-section > p {
+  color: #bcb3a3;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  padding: 15px 22px;
+  border: 1px solid rgba(214,180,119,.6);
+  color: var(--gold-light);
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.social-link:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* FOOTER */
 
 footer {
   background: var(--black);
@@ -286,62 +588,196 @@ footer {
   font-size: 10px;
   letter-spacing: 2px;
 }
+
 footer strong {
   display: block;
   font-family: 'Cormorant Garamond', serif;
   color: var(--gold);
-  font-size: 25px;
+  font-size: 27px;
   margin-bottom: 10px;
 }
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+/* FLOATING CONTACT */
+
+.floating-contact {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.float-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 19px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.25);
+  transition: transform .3s;
+}
+
+.float-btn:hover {
+  transform: scale(1.1);
+}
+
+.float-phone { background: #a98750; }
+.float-facebook { background: #1877f2; }
+.float-tiktok { background: #111; border: 1px solid #555; }
+
+/* REVEAL */
 
 .reveal {
   opacity: 0;
   transform: translateY(25px);
   transition: opacity .8s, transform .8s;
 }
+
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* MOBILE */
+
 @media(max-width: 850px) {
-  .navbar { padding: 0 5%; height: 72px; }
+  .navbar {
+    padding: 0 5%;
+    height: 72px;
+  }
+
   .menu-btn { display: block; }
+
   .nav-links {
     display: none;
     position: absolute;
-    top: 72px; left: 0; right: 0;
+    top: 72px;
+    left: 0;
+    right: 0;
     background: #100e0b;
     padding: 25px;
     flex-direction: column;
     gap: 25px;
   }
+
   .nav-links.open { display: flex; }
-  .hero { min-height: 620px; padding: 140px 7% 80px; background-position: 62% center; }
-  .collection-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .nav-contact { display: none; }
+
+  .hero {
+    min-height: 620px;
+    padding: 140px 7% 80px;
+    background-position: 62% center;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .collection-card { height: 260px; }
-  .story { grid-template-columns: 1fr; gap: 35px; }
+
+  .story {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
   .story-image img { height: 350px; }
 }
+
 @media(max-width: 480px) {
   .brand-name { font-size: 21px; }
   .brand-icon { font-size: 29px; }
+
   .hero { min-height: 590px; }
+
   .hero-description { font-size: 12px; }
+
   .section { padding: 70px 6%; }
+
   .collection-grid { gap: 10px; }
+
   .collection-card { height: 210px; }
-  .collection-title { left: 12px; bottom: 14px; font-size: 21px; }
+
+  .collection-title {
+    left: 12px;
+    bottom: 14px;
+    font-size: 21px;
+  }
+
   .story-text h2 { font-size: 43px; }
-  .features { grid-template-columns: 1fr; padding: 45px 8%; }
+
+  .features {
+    grid-template-columns: 1fr;
+    padding: 45px 8%;
+  }
+
+  .contact-box {
+    padding: 40px 18px;
+  }
+
   .contact-box h2 { font-size: 39px; }
+
+  .contact-button {
+    display: block;
+    margin: 12px 0;
+  }
+
+  .social-section h2 { font-size: 32px; }
+
+  .floating-contact {
+    right: 12px;
+    bottom: 15px;
+  }
+
+  .float-btn {
+    width: 43px;
+    height: 43px;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .sparkle { display: none; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <header class="navbar">
+
   <a href="#home" class="brand">
     <span class="brand-icon">◇</span>
     <div>
@@ -359,23 +795,46 @@ footer strong {
     <a href="#why">WHY NEW DIAMOND</a>
     <a href="#contact">CONTACT</a>
   </nav>
+
+  <a class="nav-contact" href="tel:+959760557788">
+    ☎ 09-760 557 788
+  </a>
+
 </header>
 
+
 <main>
+
+<!-- HERO -->
+
 <section class="hero" id="home">
+
   <div class="hero-content">
     <div class="eyebrow">ELEGANCE • BEAUTY • TRUST</div>
+
     <h1>NEW<br>DIAMOND</h1>
-    <div class="hero-script">Shine Forever, Forever Yours</div>
+
+    <div class="hero-script">
+      Shine Forever, Forever Yours
+    </div>
+
     <p class="hero-description">
-      Discover timeless elegance with our exquisite diamond collection,
-      crafted to celebrate your most precious moments.
+      Discover timeless elegance with our exquisite diamond
+      collection, crafted to celebrate your most precious moments.
     </p>
-    <a class="gold-button" href="#collections">EXPLORE COLLECTION →</a>
+
+    <a class="gold-button" href="#collections">
+      EXPLORE COLLECTION →
+    </a>
   </div>
+
 </section>
 
+
+<!-- COLLECTIONS -->
+
 <section class="section" id="collections">
+
   <div class="section-heading reveal">
     <span>DISCOVER OUR WORLD</span>
     <h2>Timeless Beauty, Lasting Value</h2>
@@ -383,109 +842,442 @@ footer strong {
   </div>
 
   <div class="collection-grid">
+
     <div class="collection-card reveal">
-      <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=85" alt="Diamond rings">
-      <div class="collection-title">Diamond Rings<small>TIMELESS LOVE</small></div>
+      <img
+        src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=85"
+        alt="Diamond rings">
+      <div class="collection-title">
+        Diamond Rings
+        <small>TIMELESS LOVE</small>
+      </div>
     </div>
+
     <div class="collection-card reveal">
-      <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85" alt="Necklaces">
-      <div class="collection-title">Necklaces<small>GRACEFUL BEAUTY</small></div>
+      <img
+        src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85"
+        alt="Necklaces">
+      <div class="collection-title">
+        Necklaces
+        <small>GRACEFUL BEAUTY</small>
+      </div>
     </div>
+
     <div class="collection-card reveal">
-      <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=85" alt="Earrings">
-      <div class="collection-title">Earrings<small>SUBTLE LUXURY</small></div>
+      <img
+        src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=85"
+        alt="Earrings">
+      <div class="collection-title">
+        Earrings
+        <small>SUBTLE LUXURY</small>
+      </div>
     </div>
+
     <div class="collection-card reveal">
-      <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=85" alt="Bracelets">
-      <div class="collection-title">Bracelets<small>EVERLASTING STYLE</small></div>
+      <img
+        src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=85"
+        alt="Bracelets">
+      <div class="collection-title">
+        Bracelets
+        <small>EVERLASTING STYLE</small>
+      </div>
     </div>
+
   </div>
+
 </section>
 
+
+<!-- OUR STORY -->
+
 <section class="section story" id="story">
+
   <div class="story-image reveal">
-    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85" alt="Fine jewelry">
+    <img
+      src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
+      alt="Fine jewelry">
   </div>
+
   <div class="story-text reveal">
+
     <div class="eyebrow">ABOUT NEW DIAMOND</div>
+
     <h2>A Symbol of Love & Elegance</h2>
+
     <p>
       At New Diamond, we believe every precious jewel tells a story —
       a story of love, commitment and timeless beauty.
     </p>
+
     <p>
-      Our vision is to help you celebrate life's most meaningful moments
-      with elegance, confidence and lasting memories.
+      Our vision is to help you celebrate life's most meaningful
+      moments with elegance, confidence and lasting memories.
     </p>
-    <a href="#contact" class="gold-button">GET IN TOUCH →</a>
+
+    <a href="#contact" class="gold-button">
+      VISIT OUR STORE →
+    </a>
+
   </div>
+
 </section>
 
+
+<!-- WHY NEW DIAMOND -->
+
 <section class="features" id="why">
+
   <div class="feature reveal">
     <div class="feature-icon">◇</div>
     <h3>Premium Quality</h3>
-    <p>Carefully selected jewelry with attention to every detail.</p>
+    <p>
+      Carefully selected jewelry with attention
+      to every detail.
+    </p>
   </div>
+
   <div class="feature reveal">
     <div class="feature-icon">✧</div>
     <h3>Trusted & Reliable</h3>
-    <p>Building lasting relationships through trust and care.</p>
+    <p>
+      Building lasting relationships through
+      trust and care.
+    </p>
   </div>
+
   <div class="feature reveal">
     <div class="feature-icon">♢</div>
     <h3>Professional Service</h3>
-    <p>Friendly guidance to help you find something truly special.</p>
+    <p>
+      Friendly guidance to help you find
+      something truly special.
+    </p>
   </div>
+
 </section>
+
+
+<!-- CONTACT -->
 
 <section class="section contact" id="contact">
+
   <div class="contact-box reveal">
-    <div class="eyebrow">WE WOULD LOVE TO HEAR FROM YOU</div>
+
+    <div class="eyebrow">VISIT OUR STORE</div>
+
     <h2>Find Your Forever Shine</h2>
+
     <p>
-      Looking for something special?<br>
-      Contact New Diamond and let us help you discover timeless elegance.
+      We would love to welcome you.<br>
+      Visit New Diamond and discover timeless elegance.
     </p>
-    <a href="#" class="contact-button" id="contactLink">CONTACT NEW DIAMOND</a>
+
+    <div class="contact-details">
+
+      <!-- ADDRESS -->
+
+      <div class="contact-item">
+        <div class="contact-item-icon">⌖</div>
+
+        <div>
+          <strong>OUR LOCATION</strong>
+          <p>
+            <a
+              href="https://maps.app.goo.gl/T2XrMxQ9AuHPLPHP9"
+              target="_blank"
+              rel="noopener">
+              71, 108th Street × 109th Street,<br>
+              Mandalay, Myanmar ↗
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- PHONE -->
+
+      <div class="contact-item">
+        <div class="contact-item-icon">☎</div>
+
+        <div>
+          <strong>CALL US</strong>
+          <p>
+            <a href="tel:+959760557788">
+              09-760 557 788 ↗
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- FACEBOOK -->
+
+      <div class="contact-item">
+        <div class="contact-item-icon">f</div>
+
+        <div>
+          <strong>FACEBOOK PAGE</strong>
+          <p>
+            <a
+              href="https://www.facebook.com/p/New-Diamond-Gems-Jewellery-100068618231805/"
+              target="_blank"
+              rel="noopener">
+              New Diamond Gems & Jewellery ↗
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- TIKTOK -->
+
+      <div class="contact-item">
+        <div class="contact-item-icon">♪</div>
+
+        <div>
+          <strong>TIKTOK</strong>
+          <p>
+            <a
+              href="https://www.tiktok.com/@newdiamond71"
+              target="_blank"
+              rel="noopener">
+              @newdiamond71 ↗
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <a
+      href="https://maps.app.goo.gl/T2XrMxQ9AuHPLPHP9"
+      target="_blank"
+      rel="noopener"
+      class="contact-button">
+      VIEW ON GOOGLE MAPS ↗
+    </a>
+
+    <a
+      href="tel:+959760557788"
+      class="contact-button">
+      CALL NEW DIAMOND
+    </a>
+
   </div>
+
 </section>
+
+
+<!-- SOCIAL MEDIA -->
+
+<section class="social-section">
+
+  <div class="eyebrow">CONNECT WITH US</div>
+
+  <h2>Follow Our Journey</h2>
+
+  <p>
+    Discover our latest collections and beautiful moments.
+  </p>
+
+  <div class="social-links">
+
+    <a
+      class="social-link"
+      href="https://www.facebook.com/p/New-Diamond-Gems-Jewellery-100068618231805/"
+      target="_blank"
+      rel="noopener">
+      FACEBOOK ↗
+    </a>
+
+    <a
+      class="social-link"
+      href="https://www.tiktok.com/@newdiamond71"
+      target="_blank"
+      rel="noopener">
+      TIKTOK ↗
+    </a>
+
+    <a
+      class="social-link"
+      href="tel:+959760557788">
+      CALL US ↗
+    </a>
+
+  </div>
+
+</section>
+
 </main>
 
+
+<!-- FOOTER -->
+
 <footer>
+
   <strong>NEW DIAMOND</strong>
+
   SHINE FOREVER, FOREVER YOURS
-  <p style="margin-top:18px; letter-spacing:1px;">© <span id="year"></span> NEW DIAMOND. ALL RIGHTS RESERVED.</p>
+
+  <div class="footer-links">
+
+    <a
+      href="https://maps.app.goo.gl/T2XrMxQ9AuHPLPHP9"
+      target="_blank"
+      rel="noopener">
+      LOCATION
+    </a>
+
+    <a href="tel:+959760557788">PHONE</a>
+
+    <a
+      href="https://www.facebook.com/p/New-Diamond-Gems-Jewellery-100068618231805/"
+      target="_blank"
+      rel="noopener">
+      FACEBOOK
+    </a>
+
+    <a
+      href="https://www.tiktok.com/@newdiamond71"
+      target="_blank"
+      rel="noopener">
+      TIKTOK
+    </a>
+
+  </div>
+
+  <p style="margin-top:22px; letter-spacing:1px;">
+    © <span id="year"></span> NEW DIAMOND.
+    ALL RIGHTS RESERVED.
+  </p>
+
 </footer>
 
+
+<!-- FLOATING QUICK CONTACT BUTTONS -->
+
+<div class="floating-contact">
+
+  <a
+    class="float-btn float-phone"
+    href="tel:+959760557788"
+    aria-label="Call New Diamond">
+    ☎
+  </a>
+
+  <a
+    class="float-btn float-facebook"
+    href="https://www.facebook.com/p/New-Diamond-Gems-Jewellery-100068618231805/"
+    target="_blank"
+    rel="noopener"
+    aria-label="Facebook">
+    f
+  </a>
+
+  <a
+    class="float-btn float-tiktok"
+    href="https://www.tiktok.com/@newdiamond71"
+    target="_blank"
+    rel="noopener"
+    aria-label="TikTok">
+    ♪
+  </a>
+
+</div>
+
+
 <script>
+
+/* MOBILE MENU */
+
 const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
 
 menuBtn.addEventListener('click', () => {
+
   navLinks.classList.toggle('open');
-  menuBtn.textContent = navLinks.classList.contains('open') ? '×' : '☰';
+
+  menuBtn.textContent =
+    navLinks.classList.contains('open') ? '×' : '☰';
+
 });
 
 document.querySelectorAll('.nav-links a').forEach(link => {
+
   link.addEventListener('click', () => {
+
     navLinks.classList.remove('open');
     menuBtn.textContent = '☰';
+
   });
+
 });
 
+
+/* SCROLL REVEAL */
+
 const observer = new IntersectionObserver(entries => {
+
   entries.forEach(entry => {
+
     if (entry.isIntersecting) {
+
       entry.target.classList.add('visible');
       observer.unobserve(entry.target);
+
     }
+
   });
+
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => {
+  observer.observe(el);
+});
 
-document.getElementById('year').textContent = new Date().getFullYear();
+
+/* CURRENT YEAR */
+
+document.getElementById('year').textContent =
+  new Date().getFullYear();
+
+
+/* DIAMOND SPARKLE ANIMATION */
+
+const hero = document.querySelector('.hero');
+
+const reducedMotion =
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (hero && !reducedMotion) {
+
+  const sparkleLayer = document.createElement('div');
+  sparkleLayer.className = 'sparkle-layer';
+
+  hero.appendChild(sparkleLayer);
+
+  for (let i = 0; i < 28; i++) {
+
+    const sparkle = document.createElement('span');
+
+    sparkle.className = 'sparkle';
+    sparkle.textContent = '✦';
+
+    sparkle.style.left = Math.random() * 100 + '%';
+    sparkle.style.top = Math.random() * 100 + '%';
+
+    sparkle.style.animationDelay =
+      Math.random() * 6 + 's';
+
+    sparkle.style.animationDuration =
+      (3 + Math.random() * 4) + 's';
+
+    sparkle.style.fontSize =
+      (7 + Math.random() * 12) + 'px';
+
+    sparkleLayer.appendChild(sparkle);
+
+  }
+
+}
+
 </script>
 
 </body>
